@@ -7,7 +7,7 @@ cache:
     - node_modules
 script:
   - yarn fixsass
-  - yarn semantic
+  - yarn prepare
   - yarn validate
   - yarn coverage
   - yarn build
