@@ -8,7 +8,7 @@ const TAG_END = '// translate:end';
 const basepath = path.resolve(`${__dirname}/../../src/shared/i18n`);
 
 const transfiles = path.resolve(`${__dirname}/../../src/shared/components/ChinaCompare`) + path.sep;
-const destfile = path.resolve(basepath, '/translations.js');
+const destfile = path.resolve(`${basepath}/translations.js`);
 
 module.exports = injectTranslates = () => {
   find.file(/\/locale-[a-z]{2}\.json$/, transfiles, function (files) {
@@ -17,9 +17,9 @@ module.exports = injectTranslates = () => {
       let file = f.replace(transfiles, '');
       if (file.indexOf(basepath) === 0) {
         const reg = new RegExp(`^${basepath}${path.sep}`, 'i');
-        file = `.${path.sep}${file.replace(reg, '')}`;
+        file = path.normalize(`./${file.replace(reg, '')}`);
       } else {
-        file = `..${path.sep}${file}`;
+        file = path.normalize(`../components/ChinaCompare/${file}`);
       }
       // const total = file.replace(/\.json$/, '');
       const lang = file.replace(/\.json$/, '').split('-')[1];
