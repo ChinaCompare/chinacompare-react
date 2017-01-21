@@ -12,35 +12,49 @@ const cspConfig = {
     // Note: Setting this to stricter than * breaks the service worker. :(
     // I can't figure out how to get around this, so if you know of a safer
     // implementation that is kinder to service workers please let me know.
-    connectSrc: ['*'], // ["'self'", 'ws:'],
+    connectSrc: ['*', 'data:'], // ["'self'", 'ws:'],
     defaultSrc: ['\'self\''],
     imgSrc: [
-      '\'self\''
+      '\'self\'',
       // If you use Base64 encoded images (i.e. inlined images), then you will
       // need the following:
-      // 'data:',
+      'data:',
+      'blob:'
     ],
-    fontSrc: ['\'self\''],
-    objectSrc: ['\'self\''],
-    mediaSrc: ['\'self\''],
-    manifestSrc: ['\'self\''],
+    fontSrc: [
+      '\'self\'',
+      'data:',
+      'blob:',
+      'fonts.gstatic.com'
+    ],
+    objectSrc: ['\'self\'', 'data:'],
+    mediaSrc: ['\'self\'', 'data:'],
+    manifestSrc: ['\'self\'', 'data:'],
     scriptSrc: [
       // Allow scripts hosted from our application.
       '\'self\'',
       // Allow scripts from cdn.polyfill.io so that we can import the polyfill.
       'cdn.polyfill.io',
+      'blob:',
+      'data:',
+      // '\'unsafe-eval\'',
       // Note: We will execution of any inline scripts that have the following
       // nonce identifier attached to them.
       // This is useful for guarding your application whilst allowing an inline
       // script to do data store rehydration (redux/mobx/apollo) for example.
       // @see https://helmetjs.github.io/docs/csp/
       // $FlowFixMe
-      (req, res) => `'nonce-${res.locals.nonce}'`
+      (req, res) => `'nonce-${res.locals.nonce}'`,
+      // (req, res) => `'unsafe-inline'`,
+      // '\'unsafe-inline\''
+      // '\'strict-dynamic\''
     ],
     styleSrc: [
       '\'self\'',
+      'fonts.googleapis.com',
       // Webpack generates JS that loads our CSS, so this is needed:
       '\'unsafe-inline\'',
+      // 'data:',
       'blob:'
     ]
   }

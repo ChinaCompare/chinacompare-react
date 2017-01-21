@@ -23,12 +23,12 @@ function styleTags(styles : Array<string>) {
     .join('\n');
 }
 
-function scriptTag(jsFilePath: string) {
-  return `<script type="text/javascript" src="${jsFilePath}"></script>`;
+function scriptTag(jsFilePath: string, nonce: string) {
+  return `<script nonce="${nonce}" type="text/javascript" src="${jsFilePath}"></script>`;
 }
 
-function scriptTags(jsFilePaths : Array<string>) {
-  return jsFilePaths.map(scriptTag).join('\n');
+function scriptTags(jsFilePaths : Array<string>, nonce: string) {
+  return jsFilePaths.map((file) => scriptTag(file, nonce)).join('\n');
 }
 
 type Args = {
@@ -68,7 +68,7 @@ export default function generateHTML(args: Args) {
 
   // Creates an inline script definition that is protected by the nonce.
   const inlineScript = body =>
-    `<script nonce="${nonce}" type='text/javascript'>
+    `<script nonce="${nonce}" type="text/javascript">
        ${body}
      </script>`;
 
@@ -82,7 +82,7 @@ export default function generateHTML(args: Args) {
         ${helmet ? helmet.style.toString() : ''}
       </head>
       <body>
-        <div id='app'>${reactAppString || ''}</div>
+        <div id="app">${reactAppString || ''}</div>
         ${
           // Binds the client configuration object to the window object so
           // that we can safely expose some configuration values to the
@@ -126,7 +126,7 @@ export default function generateHTML(args: Args) {
             ? scriptTag(`${config.bundles.client.webPath}${config.bundles.client.devVendorDLL.name}.js?t=${Date.now()}`)
             : ''
         }
-        ${scriptTags(assetsForRender.js)}
+        ${scriptTags(assetsForRender.js, nonce)}
         ${helmet ? helmet.script.toString() : ''}
       </body>
     </html>`;
