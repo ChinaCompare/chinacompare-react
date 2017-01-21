@@ -11,14 +11,14 @@
     "node": ">=6"
   },
   "scripts": {
-    "postinstall": "yarn flow:defs || npm run flow:defs",
+    "postinstall": "yarn flow:defs",
     "preinstall": "node tools/scripts/preinstall",
     "clean": "babel-node tools/scripts/clean",
-    "development": "babel-node tools/development",
-    "dev": "yarn development || npm run development",
-    "build": "yarn semantic || npm run semantic && cross-env NODE_ENV=production babel-node tools/scripts/build",
+    "development": "yarn translate && babel-node tools/development",
+    "dev": "yarn development",
+    "build": "yarn semantic && yarn translate && cross-env NODE_ENV=production babel-node tools/scripts/build",
     "analyze": "babel-node tools/scripts/analyze",
-    "start": "yarn build || npm run build && cross-env NODE_ENV=production node build/server",
+    "start": "yarn build && cross-env NODE_ENV=production node build/server",
     "deploy": "babel-node tools/scripts/deploy",
     "flow": "babel-node tools/scripts/flow",
     "flow:defs": "flow-typed install --overwrite",
@@ -29,7 +29,7 @@
     "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls ; rimraf coverage",
     "test": "node tools/scripts/tester.js --env=jsdom",
     "fixsass": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass",
-    "semantic": "cd semantic && yarn || npm install && gulp build",
+    "semantic": "cd semantic && yarn && gulp build",
     "translate": "node tools/scripts/injecttranslate"
   },
   "license": "MIT",
@@ -139,6 +139,7 @@
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.15.0",
     "webpack-md5-hash": "0.0.5",
-    "webpack-node-externals": "1.5.4"
+    "webpack-node-externals": "1.5.4",
+    "yarn": "^0.19.1"
   }
 }
