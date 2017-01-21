@@ -34,9 +34,10 @@ module.exports = injectTranslates = () => {
 
 const addNewTranslate = function (list, files) {
   const VARNAME = 'trans';
+  const DEF_VARNAME = 'translate';
   Object.keys(files).forEach(function (key) {
     if (files[key].length > 1) {
-      list.push(`const trans${key} = merge.all([`);
+      list.push(`const ${VARNAME}${key} = merge.all([`);
       files[key].forEach(function (f, i, array) {
         const comma = i === array.length - 1 ? '' : ',';
         list.push(`  require('${f}')${comma}`);
@@ -47,7 +48,7 @@ const addNewTranslate = function (list, files) {
       list.push(`const trans${key} = require('${f}');`);
     }
   });
-  list.push(`export const ${VARNAME} = {`);
+  list.push(`export const ${DEF_VARNAME} = {`);
   Object.keys(files).forEach(function (key, i, array) {
     const comma = i === array.length - 1 ? '' : ',';
     list.push(`  ${key}: ${VARNAME}${key}${comma}`);
