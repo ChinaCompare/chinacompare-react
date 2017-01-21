@@ -29,7 +29,8 @@
     "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls ; rimraf coverage",
     "test": "node tools/scripts/tester.js --env=jsdom",
     "fixsass": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass",
-    "semantic": "cd semantic && yarn || npm install && gulp build"
+    "semantic": "cd semantic && yarn || npm install && gulp build",
+    "translate": "node tools/scripts/injecttranslate"
   },
   "license": "MIT",
   "jest": {
@@ -107,6 +108,7 @@
     "expect": "^1.20.2",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "0.9.0",
+    "find": "^0.2.7",
     "flow-bin": "0.38.0",
     "flow-coverage-report": "0.2.0",
     "flow-typed": "2.0.0",
