@@ -159,8 +159,8 @@ const config = {
   // @see https://github.com/nfl/react-helmet
   htmlPage: {
     htmlAttributes: { lang: 'en' },
-    titleTemplate: 'React, Universally - %s',
-    defaultTitle: 'React, Universally',
+    titleTemplate: 'ChinaCompare - %s',
+    defaultTitle: 'ChinaCompare',
     meta: [
       {
         name: 'description',
@@ -175,7 +175,7 @@ const config = {
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
       // This is important to signify your application is mobile responsive!
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
-      { name: 'title', content: 'ChinaCompare' },
+      // { name: 'title', content: 'ChinaCompare' },
       { name: 'description', content: 'Price comparator' },
       { name: 'author', content: '?' },
       { name: 'keywords', content: '' },
