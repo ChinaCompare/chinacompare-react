@@ -2,19 +2,19 @@
 .env
 
 # Build output folders
-build/
+/build/
 
 # Logs
 logs/
 *.log
 
 # Runtime data
-pids/
+/pids/
 *.pid
 *.seed
 
 # Coverage directory used by tools like istanbul
-coverage/
+/coverage/
 
 # node-waf configuration
 .lock-wscript
@@ -34,13 +34,13 @@ npm-debug.log
 .history
 
 # flow-typed Lib Defs
-flow-typed/
+/flow-typed/
 
 # Flow Coverage Report
 flow-coverage/
 
 # Happypack
-.happypack/
+/.happypack/
 
 # Semantic UI
 semantic/dist/
