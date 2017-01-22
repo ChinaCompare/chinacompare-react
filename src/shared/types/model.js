@@ -6,4 +6,7 @@ export type Post = {
   body: string,
 };
 
-export default { Post };
+export type Language = {
+  locale: string,
+  messages: object
+};
