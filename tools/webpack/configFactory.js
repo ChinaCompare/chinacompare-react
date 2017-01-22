@@ -6,6 +6,7 @@ import webpack from 'webpack';
 import OfflinePlugin from 'offline-plugin';
 import AssetsPlugin from 'assets-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import appRootDir from 'app-root-dir';
@@ -195,10 +196,17 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
 
     resolve: {
       // These extensions are tried when resolving a file.
-      extensions: config.bundleSrcTypes.map(ext => `.${ext}`)
+      extensions: config.bundleSrcTypes.map(ext => `.${ext}`),
+
+      // This is required for the modernizr-loader
+      // @see https://github.com/peerigon/modernizr-loader
+      alias: {
+        modernizr$: path.resolve(appRootDir.get(), './.modernizrrc')
+      }
     },
 
     plugins: removeEmpty([
+      ifDev(() => new DashboardPlugin()),
       // Required support for code-split-component, which provides us with our
       // code splitting functionality.
       //
@@ -636,7 +644,20 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
             // the correct asset URLs.
             emitFile: isClient
           }
-        }))
+        })),
+
+        // MODERNIZR
+        // This allows you to do feature detection.
+        // @see https://modernizr.com/docs
+        // @see https://github.com/peerigon/modernizr-loader
+        ifClient({
+          test: /\.modernizrrc.js$/,
+          loader: 'modernizr-loader'
+        }),
+        ifClient({
+          test: /\.modernizrrc(\.json)?$/,
+          loader: 'modernizr-loader!json-loader'
+        })
       ])
     }
   };

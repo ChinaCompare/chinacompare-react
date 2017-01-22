@@ -28,7 +28,7 @@ export function happyPackPlugin({ name, loaders } : HappyPackConfig) {
 }
 
 // Removes the empty items from the given array.
-export function removeEmpty(x : Array<any>) : Array<any> {
+export function removeEmpty(x: Array<any>): Array<any> {
   return x.filter(y => !!y);
 }
 
@@ -58,9 +58,9 @@ export function removeEmpty(x : Array<any>) : Array<any> {
 // then this function will only be interpretted after the ifElse has run. This
 // can be handy for values that require some complex initialization process.
 // e.g. ifDev(() => 'lazy', 'not lazy');
-export function ifElse(condition : boolean) {
+export function ifElse(condition: boolean) {
   // TODO: Allow the then/or to accept a function for lazy value resolving.
-  return function ifElseResolver<X, Y>(then : X, or : Y) : X|Y {
+  return function ifElseResolver<X, Y>(then: X, or: Y): X|Y {
     const execIfFuc = x => (typeof x === 'function' ? x() : x);
     return condition ? execIfFuc(then) : (or);
   };
@@ -68,8 +68,8 @@ export function ifElse(condition : boolean) {
 
 // Merges a set of objects together.
 // NOTE: This performs a deep merge.
-export function merge(...args : Array<?Object>) {
-  const filtered : Array<Object> = removeEmpty(args);
+export function merge(...args: Array<?Object>) {
+  const filtered: Array<Object> = removeEmpty(args);
   if (filtered.length < 1) {
     return {};
   }
@@ -95,10 +95,12 @@ type NotificationOptions = {
   level?: 'info'|'warn'|'error'
 };
 
-export function log(options : NotificationOptions) {
+const ALLOW_NOTIFY = false;
+
+export function log(options: NotificationOptions) {
   const title = `${options.title.toUpperCase()}`;
 
-  if (options.notify) {
+  if (ALLOW_NOTIFY && options.notify) {
     notifier.notify({
       title,
       message: options.message
@@ -109,13 +111,18 @@ export function log(options : NotificationOptions) {
   const msg = `==> ${title} -> ${options.message}`;
 
   switch (level) {
-    case 'warn': console.log(colors.yellow(msg)); break;
-    case 'error': console.log(colors.bgRed.white(msg)); break;
+    case 'warn':
+      console.log(colors.yellow(msg));
+      break;
+    case 'error':
+      console.log(colors.bgRed.white(msg));
+      break;
     case 'info':
-    default: console.log(colors.green(msg));
+    default:
+      console.log(colors.green(msg));
   }
 }
 
-export function exec(command : string) {
+export function exec(command: string) {
   execSync(command, { stdio: 'inherit', cwd: appRootDir.get() });
 }

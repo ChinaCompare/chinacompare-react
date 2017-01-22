@@ -62,7 +62,8 @@ class HotNodeServer {
       if (this.clientCompiling) {
         setTimeout(waitForClientThenStartServer, 50);
       } else {
-        startServer();
+        // startServer();
+        setTimeout(() => startServer(), 200);
       }
     };
 

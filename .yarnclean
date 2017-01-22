@@ -9,6 +9,7 @@ docs
 doc
 website
 images
+#assets
 
 # examples
 example
@@ -20,7 +21,7 @@ coverage
 
 # build scripts
 Makefile
-Gulpfile.js
+#Gulpfile.js
 Gruntfile.js
 
 # configs
@@ -33,6 +34,8 @@ Gruntfile.js
 .flowconfig
 .documentup.json
 .yarn-metadata.json
+#.*.yml
+#*.yml
 
 # misc
 *.gz
