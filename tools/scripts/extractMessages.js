@@ -70,7 +70,7 @@ function extractFromFile({ next, current }, babel, fileName) {
           next[locale][message.id] = {
             id: message.id,
             description: message.description,
-            defaultMessage: message.defaultMessage,
+            defaultMessage: (curr && curr.defaultMessage) ? curr.defaultMessage : message.defaultMessage,
             message: (curr && curr.message)
               ? curr.message
               : ''
