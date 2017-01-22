@@ -12,7 +12,7 @@
   },
   "scripts": {
     "preinstall": "node tools/scripts/preinstall",
-    "prepare": "yarn flow:defs && yarn semantic && yarn translate",
+    "prepare": "yarn flow:defs && yarn semantic",
     "clean": "babel-node tools/scripts/clean",
     "development": "NODE_ENV=development babel-node tools/development",
     "dev": "yarn development",
@@ -29,8 +29,7 @@
     "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls ; rimraf coverage",
     "test": "node tools/scripts/tester.js --env=jsdom",
     "fixsass": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass",
-    "semantic": "cd semantic && yarn && gulp build",
-    "translate": "node tools/scripts/injecttranslate"
+    "semantic": "cd semantic && yarn && gulp build"
   },
   "license": "MIT",
   "jest": {
@@ -68,7 +67,6 @@
     "react-hot-loader": "3.0.0-beta.6",
     "react-jobs": "0.6.2",
     "react-redux": "5.0.2",
-    "react-redux-multilingual": "^1.0.2",
     "react-router": "4.0.0-alpha.6",
     "redux": "3.6.0",
     "redux-thunk": "2.2.0",
