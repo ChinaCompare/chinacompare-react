@@ -1,3 +1,11 @@
+
+[![Build Status](https://travis-ci.org/ChinaCompare/chinacompare-react.svg?branch=develop)](https://travis-ci.org/ChinaCompare/chinacompare-react)
+[![Coverage Status](https://coveralls.io/repos/github/ChinaCompare/chinacomopare-react/badge.svg?branch=develop)](https://coveralls.io/github/ChinaCompare/chinacompare-react?branch=develop)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7bc230b18193483b9b773f33f3d74968)](https://www.codacy.com/app/ChinaCompare/chinacompare-react?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ChinaCompare/chinacompare-react&amp;utm_campaign=Badge_Grade)
+[![Github Issues](http://githubbadges.herokuapp.com/ChinaCompare/chinacompare-react/issues.svg?style=flat-square)](https://github.com/ChinaCompare/chinacompare-react/issues)
+[![Pending Pull-Requests](http://githubbadges.herokuapp.com/ChinaCompare/chinacompare-react/pulls.svg?style=flat-square)](https://github.com/ChinaCompare/chinacompare-react/pulls)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
 ## Features
 
   - 👀 `react` as the view.
