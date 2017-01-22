@@ -43,4 +43,7 @@ flow-coverage/
 .happypack/
 
 # Semantic UI
-semantic/dist
+semantic/dist/
+
+# Generated translations
+src/locale-data/
