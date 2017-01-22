@@ -12,7 +12,7 @@
   },
   "scripts": {
     "preinstall": "node tools/scripts/preinstall",
-    "prepare": "yarn flow:defs && yarn semantic",
+    "prepare": "yarn flow:defs && yarn semantic && yarn intl",
     "clean": "babel-node tools/scripts/clean",
     "development": "NODE_ENV=development babel-node tools/development",
     "dev": "yarn development",
@@ -20,9 +20,6 @@
     "analyze": "babel-node tools/scripts/analyze",
     "start": "yarn build && cross-env NODE_ENV=production node build/server",
     "deploy": "babel-node tools/scripts/deploy",
-    "intl": "yarn intl:extractLocaleData && yarn intl:extractMessages",
-    "intl:extractLocaleData": "babel-node tools/scripts/extractLocaleData",
-    "intl:extractMessages": "babel-node tools/scripts/extractMessages",
     "flow": "babel-node tools/scripts/flow",
     "flow:defs": "flow-typed install --overwrite",
     "flow:coverage": "flow-coverage-report -i 'src/shared/**/*.js' -t html -t json -t text ; rimraf flow-coverage",
@@ -32,7 +29,10 @@
     "coverage": "yarn test -- --coverage && cat coverage/lcov.info | coveralls ; rimraf coverage",
     "test": "node tools/scripts/tester.js --env=jsdom",
     "fixsass": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass",
-    "semantic": "cd semantic && yarn && gulp build"
+    "semantic": "cd semantic && yarn && gulp build",
+    "intl": "yarn intl:extractLocaleData && yarn intl:extractMessages",
+    "intl:extractLocaleData": "babel-node tools/scripts/extractLocaleData",
+    "intl:extractMessages": "babel-node tools/scripts/extractMessages"
   },
   "license": "MIT",
   "jest": {
