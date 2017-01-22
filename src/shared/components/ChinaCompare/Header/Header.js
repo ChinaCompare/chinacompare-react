@@ -20,7 +20,7 @@ export class CustomHeader extends Component {
           <p>Today is <FormattedDate weekday="long" value={new Date()}/></p>
           <p>New year was <FormattedRelative value={new Date(new Date().getFullYear(), 0, 1)}/></p>
           <h4>
-            <FormattedMessage id="app.header.test" defaultMessage="Testing locales, default"/>
+            <FormattedMessage id="app.header.test" defaultMessage="Default message"/>
           </h4>
         </Container>
       </div>
