@@ -163,6 +163,7 @@ const config = {
   // Available locales
   locales: [
     'en',
+    'es',
     'ru',
     'ro',
   ],
