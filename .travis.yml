@@ -11,7 +11,7 @@ script:
   - yarn validate
   - yarn coverage
   - yarn build
-  - node scripts/notify.js
+  - node tools/scripts/notify.js
 env:
   global:
   - secure: Otg8+SGdNQWsL/l+x4yIplWDVAfsTbfQEybkn4sHoABmvND0hYlv+wrgf/LZTB5cM8+l6EFergn23z6ahd0v6BliNtpLlbBgJTEp5tzQbrzpeUkJZt8+gVGEKETQ1px6c9khCzlw+9jNhE9mxIZKyrxtFS4Vp8Z6VmpXfGmK/k0dpvU0jtzqxeCdRzqxG/9PPC7zE2lXBs/A4TcRt8BwidmMfj9APcxFGd/fWkB8MzU8/L35CDbL7X9QIL1BWGQNR4r4K5eWM0x2i05XiJ1xWYcqDhoSLHG5rEgJNFNeppLzHTqdSe1/VaKbtWxJGxSSXgtKq9zGiSqWxxvYNAcAl7JV7kLeqrtgZKh5UKKuj6yB0SequMQe7fGeSxh6/GnWZob/Rc4FBbQjgB38ZhaD8rOWWWnRzUGSqica0lTWaLGEv0UjYwbj9MNl1bt8rg3hhBYMiL7VweZEiO1LdXrcSi3m0hPvkyZRXfNlRDmfqxu04rgahpyUmVtFzVAa/K8j84qBYaDDe7ovsIAA+ctf3IdaZwhEyrMV+jnppqtXBCMZlc/qR24u5z17gT5g+UfxMaMwP03KkYr0j5srTMJLAjAVofUG2tJqTE6pThPEw+bhaZV9polSHvKS3CZOb30HG4YxvRXqkHEdIVKdGOFQRvaHvcfldQLQcF7rINynj6A=
