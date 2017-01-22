@@ -127,6 +127,7 @@
     "flow-typed": "2.0.0",
     "gaze": "^1.1.2",
     "glob": "^7.1.1",
+    "gulp": "^3.9.1",
     "happypack": "3.0.2",
     "html-webpack-plugin": "2.26.0",
     "jest": "18.1.0",
