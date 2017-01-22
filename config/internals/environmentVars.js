@@ -57,7 +57,7 @@ export function getIntEnvVar(name : string, defaultVal : number) {
     : defaultVal;
 }
 
-export function getBoolVar(name : string, defaultVal : boolean) {
+export function getBoolEnvVar(name : string, defaultVal : boolean) {
   return process.env[name]
     ? process.env[name] === 'true'
     : defaultVal;
