@@ -201,8 +201,8 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
       // This is required for the modernizr-loader
       // @see https://github.com/peerigon/modernizr-loader
       alias: {
-        modernizr$: path.resolve(appRootDir.get(), './.modernizrrc'),
-      },
+        modernizr$: path.resolve(appRootDir.get(), './.modernizrrc')
+      }
     },
 
     plugins: removeEmpty([
@@ -652,12 +652,12 @@ export default function webpackConfigFactory(buildOptions: BuildOptions) {
         // @see https://github.com/peerigon/modernizr-loader
         ifClient({
           test: /\.modernizrrc.js$/,
-          loader: 'modernizr-loader',
+          loader: 'modernizr-loader'
         }),
         ifClient({
           test: /\.modernizrrc(\.json)?$/,
-          loader: 'modernizr-loader!json-loader',
-        }),
+          loader: 'modernizr-loader!json-loader'
+        })
       ])
     }
   };
