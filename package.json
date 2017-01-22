@@ -20,6 +20,7 @@
     "analyze": "babel-node tools/scripts/analyze",
     "start": "yarn build && cross-env NODE_ENV=production node build/server",
     "deploy": "babel-node tools/scripts/deploy",
+    "intl": "yarn intl:extractLocaleData && yarn intl:extractMessages",
     "intl:extractLocaleData": "babel-node tools/scripts/extractLocaleData",
     "intl:extractMessages": "babel-node tools/scripts/extractMessages",
     "flow": "babel-node tools/scripts/flow",
